@@ -23,8 +23,8 @@ def login(driver):
     driver.find_element_by_class_name("link-login").click()
     time.sleep(2)
     driver.find_element_by_link_text("账户登录").click()
-    driver.find_element_by_id("loginname").send_keys("18819151992")
-    driver.find_element_by_id("nloginpwd").send_keys("5love01314")
+    driver.find_element_by_id("loginname").send_keys("18819")
+    driver.find_element_by_id("nloginpwd").send_keys("5love")
     driver.find_element_by_id("loginsubmit").click()
     # 将 cookies 保存到文件中
     save_cookies_to_file(driver)
