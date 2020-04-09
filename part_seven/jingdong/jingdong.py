@@ -9,11 +9,12 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 
 # 启动浏览器
-from part_five.jingdong.my_cookies import check_cookies, save_cookies_to_file
+from part_seven.jingdong.my_cookies import check_cookies, save_cookies_to_file
 
 # driver = webdriver.Chrome()
 # driver.maximize_window()
-from part_five.jingdong.my_mysql import save_goods_info_to_mysql
+from part_seven.jingdong.my_mysql import save_goods_info_to_mysql
+from part_seven.jingdong.my_mysql import new_save_goods_info_to_mysql
 
 
 def login(driver):
@@ -80,7 +81,8 @@ def to_goods_page(driver, name):
         info_element_dict = get_info_element_dict(info_element)
         result_list.append(info_element_dict)
     # 保存这些信息到文件中
-    save_goods_info_to_mysql(result_list)
+    # save_goods_info_to_mysql(result_list)
+    new_save_goods_info_to_mysql(result_list)
 
 
 def get_info_element_dict(info_element):
@@ -118,21 +120,24 @@ def save_goods_info(info_list):
 
 def to_start(driver, name):
     # 需要有一个循环操作来控制登陆状态，判断登陆是否成功
-    try:
-        loop_status = True
-        while loop_status:
-            # 检查 cookies 是否生效
-            login_status = check_cookies(driver)
-            if login_status:
-                loop_status = False
-            else:
-                login(driver)
+    # try:
+    #     loop_status = True
+    #     while loop_status:
+    #         # 检查 cookies 是否生效
+    #         login_status = check_cookies(driver)
+    #         if login_status:
+    #             loop_status = False
+    #         else:
+    #             login(driver)
+    #
+    #     # 跳转到商品信息页面
+    #     to_goods_page(driver, name)
+    # finally:
+    #     time.sleep(4)
+    #     driver.quit()
+    to_goods_page(driver, name)
 
-        # 跳转到商品信息页面
-        to_goods_page(driver, name)
-    finally:
-        time.sleep(4)
-        driver.quit()
+
 
 
 def thinkpad_start(driver):
