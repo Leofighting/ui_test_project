@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 __author__ = "leo"
 
+from part_nine.orm.field import Field
 from part_nine.orm.orm import Model
 
 

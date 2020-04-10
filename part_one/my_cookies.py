@@ -36,7 +36,7 @@ def login():
         driver.find_element_by_class_name("link-login").click()
         time.sleep(1)
         driver.find_element_by_link_text("账户登录").click()
-        driver.find_element_by_id("loginname").send_keys("1881915")
+        driver.find_element_by_id("loginname").send_keys("18819")
         driver.find_element_by_id("nloginpwd").send_keys("")
         driver.find_element_by_id("loginsubmit").click()
         save_cookies(driver)
